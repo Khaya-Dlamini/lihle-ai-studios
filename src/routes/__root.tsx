@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -77,19 +78,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Lihle Websites — Modern Websites Built Smarter with AI" },
+      { name: "description", content: "Lihle Websites is a premium digital agency designing fast, conversion-focused websites with React, TypeScript and AI-assisted development." },
+      { name: "author", content: "Lihle Websites" },
+      { name: "theme-color", content: "#10b981" },
+      { property: "og:site_name", content: "Lihle Websites" },
+      { property: "og:title", content: "Lihle Websites — Modern Websites Built Smarter with AI" },
+      { property: "og:description", content: "Premium digital agency building high-quality, conversion-focused websites with modern technology and AI." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Lihle Websites — Modern Websites Built Smarter with AI" },
+      { name: "twitter:description", content: "Premium digital agency building modern websites with AI." },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" },
+    ],
+    scripts: [
       {
-        rel: "stylesheet",
-        href: appCss,
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Lihle Websites",
+          url: "/",
+          slogan: "Modern Websites Built Smarter with AI",
+          description: "Premium digital agency building high-quality, conversion-focused websites with modern technology and AI.",
+          sameAs: [],
+        }),
       },
     ],
   }),
@@ -118,8 +136,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <Toaster richColors position="top-center" />
     </QueryClientProvider>
   );
 }

@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-muted/40">
       <div className="container-page grid gap-10 py-14 md:grid-cols-4">
         <div className="space-y-4 md:col-span-2">
-          <Logo />
+          <Logo size="lg" />
           <p className="max-w-sm text-sm text-muted-foreground">
             Modern websites built smarter with AI. We design and ship fast,
             conversion-focused experiences for ambitious brands.

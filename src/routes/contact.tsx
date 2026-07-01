@@ -64,16 +64,6 @@ function ContactPage() {
                   <Link to="/book">Book a project <ArrowRight className="ml-1 h-4 w-4" /></Link>
                 </Button>
               </div>
-              <div className="mt-10 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 text-white/80">
-                <div>
-                  <p className="text-3xl font-display font-semibold text-white">1 day</p>
-                  <p className="text-xs uppercase tracking-widest text-white/50">Response time</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-display font-semibold text-white">100%</p>
-                  <p className="text-xs uppercase tracking-widest text-white/50">Custom-built</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

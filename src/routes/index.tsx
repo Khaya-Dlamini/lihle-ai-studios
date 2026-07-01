@@ -32,14 +32,10 @@ function HomePage() {
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/60 to-charcoal/90" />
-        <div className="absolute inset-0 mesh-bg opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/75 via-charcoal/60 to-charcoal/90" />
 
         <div className="container-page relative flex min-h-screen flex-col items-center justify-center py-32 text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
-            <Sparkles className="h-3.5 w-3.5 text-primary-glow" /> AI-Powered Web Agency
-          </span>
-          <h1 className="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.05] text-white sm:text-6xl md:text-7xl lg:text-8xl">
+          <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[1.05] text-white sm:text-6xl md:text-7xl lg:text-8xl">
             Modern Websites
             <br />
             <span className="text-gradient">Built Smarter</span> with AI
@@ -49,10 +45,10 @@ function HomePage() {
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg" className="shadow-glow">
-              <Link to="/book">Book a project <ArrowRight className="ml-1 h-4 w-4" /></Link>
+              <Link to="/book">Book a project</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-white/25 bg-white/5 text-white hover:bg-white/10 hover:text-white">
-              <Link to="/portfolio">View work</Link>
+              <Link to="/portfolio">View my work</Link>
             </Button>
           </div>
         </div>

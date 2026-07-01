@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Bot, Zap, Search, Gauge } from "lucide-react";
+import { ArrowRight, Bot, Zap, Search, Gauge } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";

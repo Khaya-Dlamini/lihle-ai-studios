@@ -111,7 +111,7 @@ function HomePage() {
       </section>
 
       {/* RECENT WORK — 2 items, horizontal scroll on mobile */}
-      <section className="bg-muted/40 pt-16 pb-10 md:pt-20 md:pb-12">
+      <section className="bg-muted/40 pt-14 pb-6 md:pt-16 md:pb-8">
         <div className="container-page">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>

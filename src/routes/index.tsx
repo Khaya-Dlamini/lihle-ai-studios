@@ -60,7 +60,7 @@ function HomePage() {
 
         <div className="container-page relative flex min-h-screen flex-col justify-end pb-16 pt-32 md:pb-24">
           <div className="max-w-3xl">
-            <h1 className="font-display text-4xl font-semibold leading-[1.05] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="font-display text-3xl font-semibold leading-[1.05] text-white sm:text-4xl md:text-5xl lg:text-6xl">
               Modern <span className="italic font-light text-white/80">websites</span>
               <br />
               built <span className="text-gradient">smarter</span>

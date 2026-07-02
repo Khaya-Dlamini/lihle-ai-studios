@@ -144,8 +144,8 @@ function HomePage() {
       </section>
 
       {/* CTA — compact card */}
-      <section className="container-page py-14 md:py-16">
-        <div className="relative mx-auto max-w-2xl overflow-hidden rounded-2xl surface-charcoal px-5 py-6 text-center md:px-8 md:py-8">
+      <section className="container-page py-10 md:py-12">
+        <div className="relative mx-auto max-w-xl overflow-hidden rounded-2xl surface-charcoal px-4 py-5 text-center md:px-6 md:py-6">
           <div className="absolute inset-0 mesh-bg opacity-60" />
           <div className="relative">
             <h2 className="font-display text-lg font-semibold text-white md:text-xl">Ready to launch something exceptional?</h2>

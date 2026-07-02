@@ -79,7 +79,7 @@ function HomePage() {
       </section>
 
       {/* WHAT WE DO — horizontal scroll on mobile, grid on md+ */}
-      <section className="pt-16 pb-10 md:pt-20 md:pb-12">
+      <section className="pt-14 pb-6 md:pt-16 md:pb-8">
         <div className="container-page">
           <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">What we do</span>

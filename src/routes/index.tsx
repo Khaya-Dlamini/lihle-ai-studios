@@ -58,36 +58,19 @@ function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-tr from-charcoal via-charcoal/70 to-charcoal/20" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,color-mix(in_oklab,var(--primary)_35%,transparent),transparent_55%)]" />
 
-        {/* corner marks — designer detail */}
-        <div className="pointer-events-none absolute inset-4 hidden md:block">
-          <span className="absolute left-0 top-0 h-6 w-6 border-l border-t border-white/30" />
-          <span className="absolute right-0 top-0 h-6 w-6 border-r border-t border-white/30" />
-          <span className="absolute left-0 bottom-0 h-6 w-6 border-l border-b border-white/30" />
-          <span className="absolute right-0 bottom-0 h-6 w-6 border-r border-b border-white/30" />
-        </div>
-
-        {/* vertical index label */}
-        <div className="pointer-events-none absolute right-6 top-1/2 hidden -translate-y-1/2 rotate-90 text-[10px] font-semibold uppercase tracking-[0.5em] text-white/50 md:block">
-          Lihle / 001 — AI Studio
-        </div>
-
         <div className="container-page relative flex min-h-screen flex-col justify-end pb-16 pt-32 md:pb-24">
           <div className="max-w-3xl">
-            <div className="mb-6 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.4em] text-primary-glow">
-              <span className="h-px w-10 bg-primary-glow/60" />
-              Studio · Est. 2025
-            </div>
-            <h1 className="font-display text-5xl font-semibold leading-[0.95] text-white sm:text-6xl md:text-7xl lg:text-[6.5rem]">
+            <h1 className="font-display text-4xl font-semibold leading-[1.05] text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Modern <span className="italic font-light text-white/80">websites</span>
               <br />
               built <span className="text-gradient">smarter</span>
               <br />
               with AI.
             </h1>
-            <p className="mt-6 max-w-md text-sm text-white/70 md:text-base">
+            <p className="mt-5 max-w-md text-sm text-white/70 md:text-base">
               A premium digital studio building fast, beautiful websites powered by AI.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-wrap gap-3">
               <BevelLink to="/book">Book a project</BevelLink>
               <BevelLink to="/portfolio" variant="ghost">View my work</BevelLink>
             </div>
@@ -96,7 +79,7 @@ function HomePage() {
       </section>
 
       {/* WHAT WE DO — horizontal scroll on mobile, grid on md+ */}
-      <section className="py-20 md:py-24">
+      <section className="pt-16 pb-10 md:pt-20 md:pb-12">
         <div className="container-page">
           <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">What we do</span>
@@ -128,7 +111,7 @@ function HomePage() {
       </section>
 
       {/* RECENT WORK — 2 items, horizontal scroll on mobile */}
-      <section className="bg-muted/40 py-20 md:py-24">
+      <section className="bg-muted/40 pt-16 pb-10 md:pt-20 md:pb-12">
         <div className="container-page">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>

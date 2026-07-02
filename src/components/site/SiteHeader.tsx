@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
@@ -14,18 +14,39 @@ const nav = [
 
 export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const glassClass = overlay
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const isOverlay = overlay && !scrolled;
+
+  const glassClass = isOverlay
     ? "border-white/15 bg-white/10 text-white"
     : "border-charcoal/10 bg-white/70 text-charcoal";
-  const linkIdle = overlay ? "text-white/75 hover:text-white" : "text-charcoal/60 hover:text-charcoal";
-  const linkActive = overlay ? "data-[status=active]:text-white data-[status=active]:bg-white/15" : "data-[status=active]:text-charcoal data-[status=active]:bg-charcoal/5";
-  const btnClass = overlay ? "text-white" : "text-charcoal";
+
+  const linkIdle = isOverlay
+    ? "text-white/75 hover:text-white"
+    : "text-charcoal/60 hover:text-charcoal";
+
+  const linkActive = isOverlay
+    ? "data-[status=active]:text-white data-[status=active]:bg-white/15"
+    : "data-[status=active]:text-charcoal data-[status=active]:bg-charcoal/5";
+
+  const btnClass = isOverlay ? "text-white" : "text-charcoal";
+
+  const mobileItemClass = isOverlay
+    ? "text-white/85 hover:bg-white/10"
+    : "text-charcoal/85 hover:bg-charcoal/5";
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="container-page mt-3 flex items-center justify-between gap-3">
-        <Logo variant={overlay ? "light" : "dark"} size="xl" />
+        <Logo variant={isOverlay ? "light" : "dark"} size="lg" />
 
         <nav
           className={`hidden md:flex items-center gap-1 rounded-full border px-2 py-1.5 backdrop-blur-xl backdrop-saturate-150 shadow-lg ${glassClass}`}
@@ -60,6 +81,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
+
       {open && (
         <div className="md:hidden container-page mt-2">
           <div className={`rounded-2xl border p-3 backdrop-blur-xl ${glassClass}`}>
@@ -69,7 +91,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
                   key={item.to}
                   to={item.to}
                   onClick={() => setOpen(false)}
-                  className={`rounded-md px-3 py-2.5 text-sm font-medium ${overlay ? "text-white/85 hover:bg-white/10" : "text-charcoal/85 hover:bg-charcoal/5"}`}
+                  className={`rounded-md px-3 py-2.5 text-sm font-medium ${mobileItemClass}`}
                 >
                   {item.label}
                 </Link>

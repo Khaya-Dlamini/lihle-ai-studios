@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-// Beveled / cut-corner button (graphic-designer feel, referencing user's bracketed tag)
+// Beveled / cut-corner button (graphic-designer feel)
 function BevelLink({
   to,
   children,
@@ -89,7 +89,7 @@ function HomePage() {
         </div>
 
         <div className="mt-10 md:container-page">
-          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
+          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
             {[
               { icon: Bot, title: "AI-First Design", desc: "AI-assisted design and copy, tuned for your brand." },
               { icon: Zap, title: "Built for Speed", desc: "React + Vite. 95+ Lighthouse out of the box." },
@@ -97,12 +97,12 @@ function HomePage() {
             ].map((s) => (
               <div
                 key={s.title}
-                className="group min-w-[75%] shrink-0 snap-start rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:shadow-lg sm:min-w-[55%] md:min-w-0 md:p-7"
+                className="group w-[72%] sm:w-[58%] md:w-auto shrink-0 snap-start rounded-2xl border border-border bg-card p-4 transition-all hover:border-primary/40 hover:shadow-lg md:min-w-0 md:p-7"
               >
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground md:h-10 md:w-10">
                   <s.icon className="h-4 w-4" />
                 </div>
-                <h3 className="mt-4 text-base font-semibold md:text-lg">{s.title}</h3>
+                <h3 className="mt-3 text-sm font-semibold md:text-base">{s.title}</h3>
                 <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
               </div>
             ))}
@@ -123,19 +123,19 @@ function HomePage() {
         </div>
 
         <div className="mt-10 md:container-page">
-          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0">
+          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0">
             {[
               { img: work1, title: "SaaS Landing", tag: "Marketing" },
               { img: work2, title: "Boutique Store", tag: "E-commerce" },
             ].map((p) => (
               <article
                 key={p.title}
-                className="group relative min-w-[85%] shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-card sm:min-w-[65%] md:min-w-0"
+                className="group relative w-[85%] sm:w-[70%] md:w-auto shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-card md:min-w-0"
               >
-                <img src={p.img} alt={p.title} loading="lazy" className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-80" />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-5">
+                <img src={p.img} alt={p.title} loading="lazy" className="h-52 w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-72 lg:h-80" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4 md:p-5">
                   <p className="text-xs uppercase tracking-widest text-primary-glow">{p.tag}</p>
-                  <h3 className="mt-1 text-lg font-semibold text-white">{p.title}</h3>
+                  <h3 className="mt-1 text-base font-semibold text-white md:text-lg">{p.title}</h3>
                 </div>
               </article>
             ))}
@@ -144,16 +144,16 @@ function HomePage() {
       </section>
 
       {/* CTA — compact card */}
-      <section className="container-page py-16 md:py-20">
-        <div className="relative mx-auto max-w-2xl overflow-hidden rounded-2xl surface-charcoal px-6 py-8 text-center md:px-10 md:py-10">
+      <section className="container-page py-14 md:py-16">
+        <div className="relative mx-auto max-w-2xl overflow-hidden rounded-2xl surface-charcoal px-5 py-6 text-center md:px-8 md:py-8">
           <div className="absolute inset-0 mesh-bg opacity-60" />
           <div className="relative">
-            <h2 className="font-display text-xl font-semibold text-white md:text-2xl">Ready to launch something exceptional?</h2>
+            <h2 className="font-display text-lg font-semibold text-white md:text-xl">Ready to launch something exceptional?</h2>
             <p className="mx-auto mt-2 max-w-md text-sm text-white/70">We'll respond within one business day.</p>
             <div className="mt-5">
               <Link
                 to="/book"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-colors hover:bg-primary/90"
+                className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-glow transition-colors hover:bg-primary/90 md:px-6 md:py-2.5"
               >
                 Book your project
               </Link>

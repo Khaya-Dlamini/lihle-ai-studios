@@ -97,7 +97,7 @@ function HomePage() {
             ].map((s) => (
               <div
                 key={s.title}
-                className="group w-[72%] sm:w-[58%] md:w-auto shrink-0 snap-start rounded-2xl border border-border bg-card p-4 transition-all hover:border-primary/40 hover:shadow-lg md:min-w-0 md:p-7"
+                className="group w-[68%] sm:w-[54%] md:w-auto shrink-0 snap-start rounded-2xl border border-border bg-card p-4 transition-all hover:border-primary/40 hover:shadow-lg md:min-w-0 md:p-6"
               >
                 <div className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground md:h-10 md:w-10">
                   <s.icon className="h-4 w-4" />

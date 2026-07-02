@@ -1,13 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-muted/40">
       <div className="container-page grid gap-10 py-14 md:grid-cols-4">
         <div className="space-y-4 md:col-span-2">
-          <Logo size="lg" />
+          <Logo size="xl" />
           <p className="max-w-sm text-sm text-muted-foreground">
             Modern websites built smarter with AI. We design and ship fast,
             conversion-focused experiences for ambitious brands.
@@ -15,7 +15,6 @@ export function SiteFooter() {
           <div className="flex gap-2">
             <a href="mailto:hello@lihlewebsites.com" aria-label="Email" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary"><Mail className="h-4 w-4" /></a>
             <a href="https://github.com" aria-label="GitHub" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary"><Github className="h-4 w-4" /></a>
-            <a href="https://linkedin.com" aria-label="LinkedIn" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary"><Linkedin className="h-4 w-4" /></a>
           </div>
         </div>
         <div>

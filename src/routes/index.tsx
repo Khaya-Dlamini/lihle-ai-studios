@@ -130,7 +130,7 @@ function HomePage() {
             ].map((p) => (
               <article
                 key={p.title}
-                className="group relative w-[85%] sm:w-[70%] md:w-auto shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-card md:min-w-0"
+                className="group relative w-[68%] sm:w-[54%] md:w-auto shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-card md:min-w-0"
               >
                 <img src={p.img} alt={p.title} loading="lazy" className="h-52 w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-72 lg:h-80" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4 md:p-5">

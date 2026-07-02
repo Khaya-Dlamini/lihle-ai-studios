@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import logo from "@/assets/lihle-logo.png.asset.json";
 
 export function Logo({ variant = "dark", size = "md" }: { variant?: "dark" | "light"; size?: "md" | "lg" | "xl" }) {
-  const sizeClass = size === "xl" ? "h-20 md:h-24" : size === "lg" ? "h-14 md:h-16" : "h-10";
+  const sizeClass = size === "xl" ? "h-24 md:h-28" : size === "lg" ? "h-16 md:h-20" : "h-12";
   return (
     <Link to="/" className="flex items-center group" aria-label="Lihle Websites home">
       <img

@@ -46,7 +46,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="container-page mt-3 flex items-center justify-between gap-3">
-        <Logo variant={isOverlay ? "light" : "dark"} size="lg" />
+        <Logo variant={isOverlay ? "light" : "dark"} size="md" />
 
         <nav
           className={`hidden md:flex items-center gap-1 rounded-full border px-2 py-1.5 backdrop-blur-xl backdrop-saturate-150 shadow-lg ${glassClass}`}

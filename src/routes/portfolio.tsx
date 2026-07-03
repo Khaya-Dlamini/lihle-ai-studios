@@ -31,7 +31,7 @@ const projects = [
 function PortfolioPage() {
   return (
     <SiteLayout>
-      <section className="container-page py-20 md:py-28">
+      <section className="container-page pt-6 pb-16 md:pt-8 md:pb-20">
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Portfolio</span>
           <h1 className="mt-3 font-display text-4xl font-semibold md:text-6xl">Work that ships and performs.</h1>

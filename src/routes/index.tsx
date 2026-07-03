@@ -79,13 +79,56 @@ function HomePage() {
         </div>
       </section>
 
+      {/* ABOUT ME — intro card inspired by reference */}
+      <section className="container-page py-14 md:py-20">
+        <div className="mx-auto max-w-4xl">
+          <div className="rounded-3xl border border-border surface-charcoal p-6 md:p-10">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+              <img
+                src={portrait.url}
+                alt="Lihle — Frontend Developer & AI Enthusiast"
+                className="h-20 w-20 shrink-0 rounded-2xl object-cover ring-2 ring-primary/40 md:h-24 md:w-24"
+              />
+              <div className="min-w-0">
+                <h2 className="font-display text-2xl font-semibold text-white md:text-3xl">Lihle</h2>
+                <p className="mt-1 text-sm font-medium text-primary md:text-base">Frontend Developer &amp; AI Enthusiast</p>
+                <p className="mt-2 flex items-center gap-2 text-xs text-white/60">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                  </span>
+                  Available for projects
+                </p>
+              </div>
+            </div>
+            <p className="mt-6 text-sm leading-relaxed text-white/75 md:text-base">
+              I build premium, conversion-focused websites that combine beautiful design with powerful
+              technology. My work sits at the intersection of modern frontend engineering and AI —
+              every project is faster, smarter, and more impactful.
+            </p>
+            <div className="mt-6 grid grid-cols-3 gap-3 md:gap-4">
+              {[
+                { icon: Award, stat: "3+", label: "Years Building" },
+                { icon: Rocket, stat: "20+", label: "Projects Shipped" },
+                { icon: Users, stat: "100%", label: "Client Satisfaction" },
+              ].map((s) => (
+                <div key={s.label} className="rounded-2xl border border-white/10 bg-white/5 p-3 text-center md:p-5">
+                  <s.icon className="mx-auto h-4 w-4 text-primary md:h-5 md:w-5" />
+                  <p className="mt-2 font-display text-lg font-semibold text-white md:text-2xl">{s.stat}</p>
+                  <p className="mt-0.5 text-[10px] uppercase tracking-wider text-white/55 md:text-xs">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* WHAT WE DO — horizontal scroll on mobile, grid on md+ */}
-      <section className="pt-14 pb-6 md:pt-16 md:pb-8">
+      <section className="pt-4 pb-6 md:pt-6 md:pb-8">
         <div className="container-page">
           <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">What we do</span>
             <h2 className="mt-3 font-display text-3xl font-semibold md:text-5xl">We build AI-powered websites.</h2>
-            <p className="mt-3 text-muted-foreground">One focus, done exceptionally well.</p>
           </div>
         </div>
 
@@ -116,8 +159,7 @@ function HomePage() {
         <div className="container-page">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Recent work</span>
-              <h2 className="mt-2 font-display text-3xl font-semibold md:text-4xl">Selected projects</h2>
+              <h2 className="mt-2 font-display text-3xl font-semibold md:text-4xl">Recent Projects</h2>
             </div>
             <Link to="/portfolio" className="text-sm font-medium text-primary hover:underline">All projects →</Link>
           </div>

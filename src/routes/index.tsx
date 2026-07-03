@@ -69,10 +69,10 @@ function HomePage() {
               with AI.
             </h1>
             <p className="mt-5 max-w-md text-sm text-white/70 md:text-base">
-              A premium digital studio building fast, beautiful websites powered by AI.
+              A premium digital studio building fast, affordable, and beautiful websites  powered by AI.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <BevelLink to="/book">Book a project</BevelLink>
+              <BevelLink to="/book">BOOK A PROJECT</BevelLink>
               <BevelLink to="/portfolio" variant="ghost">View my work</BevelLink>
             </div>
           </div>
@@ -86,12 +86,12 @@ function HomePage() {
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
               <img
                 src={portrait.url}
-                alt="Lihle — Frontend Developer & AI Enthusiast"
+                alt="Khayelihle Dlamini — Vibe coder & Front-end dev"
                 className="h-20 w-20 shrink-0 rounded-2xl object-cover ring-2 ring-primary/40 md:h-24 md:w-24"
               />
               <div className="min-w-0">
-                <h2 className="font-display text-2xl font-semibold text-white md:text-3xl">Lihle</h2>
-                <p className="mt-1 text-sm font-medium text-primary md:text-base">Frontend Developer &amp; AI Enthusiast</p>
+                <h2 className="font-display text-2xl font-semibold text-white md:text-3xl">Khayelihle Dlamini</h2>
+                <p className="mt-1 text-sm font-medium text-primary md:text-base">Vibe coder & Front-end dev</p>
                 <p className="mt-2 flex items-center gap-2 text-xs text-white/60">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
@@ -102,15 +102,13 @@ function HomePage() {
               </div>
             </div>
             <p className="mt-6 text-sm leading-relaxed text-white/75 md:text-base">
-              I build premium, conversion-focused websites that combine beautiful design with powerful
-              technology. My work sits at the intersection of modern frontend engineering and AI —
-              every project is faster, smarter, and more impactful.
+              I'm Khaya, a vibe coder who builds premium, AI-powered websites that are modern and designed to convert.I blend creative ideas, cutting-edge AI tools, and my knack for design to deliver results you can be proud of. And when I step away from the keyboard, you'll find me playing the flute and&nbsp;violin.
             </p>
             <div className="mt-6 grid grid-cols-3 gap-3 md:gap-4">
               {[
                 { icon: Award, stat: "3+", label: "Years Building" },
-                { icon: Rocket, stat: "20+", label: "Projects Shipped" },
-                { icon: Users, stat: "100%", label: "Client Satisfaction" },
+                { icon: Rocket, stat: "5+", label: "PROJECTS " },
+                { icon: Users, stat: "98.2%", label: "Client Satisfaction" },
               ].map((s) => (
                 <div key={s.label} className="rounded-2xl border border-white/10 bg-white/5 p-3 text-center md:p-5">
                   <s.icon className="mx-auto h-4 w-4 text-primary md:h-5 md:w-5" />
@@ -135,9 +133,9 @@ function HomePage() {
         <div className="mt-10 md:container-page">
           <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
             {[
-              { icon: Bot, title: "AI-First Design", desc: "AI-assisted design and copy, tuned for your brand." },
+              { icon: Bot, title: "Custom built websites", desc: "AI-assisted design, tuned for your brand." },
               { icon: Zap, title: "Built for Speed", desc: "React + Vite. 95+ Lighthouse out of the box." },
-              { icon: Search, title: "SEO Ready", desc: "Structured data, sitemaps and metadata for ranking." },
+              { icon: Search, title: "Affordable transparent pricing", desc: "Premium websites that fit your budget." },
             ].map((s) => (
               <div
                 key={s.title}
@@ -192,13 +190,13 @@ function HomePage() {
           <div className="absolute inset-0 mesh-bg opacity-60" />
           <div className="relative">
             <h2 className="font-display text-lg font-semibold text-white md:text-xl">Ready to launch something exceptional?</h2>
-            <p className="mx-auto mt-2 max-w-md text-sm text-white/70">We'll respond within one business day.</p>
+            <p className="mx-auto mt-2 max-w-md text-sm text-white/70">We'll respond within two business day.</p>
             <div className="mt-5">
               <Link
                 to="/book"
                 className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-glow transition-colors hover:bg-primary/90 md:px-6 md:py-2.5"
               >
-                Book your project
+                Start Your Project
               </Link>
             </div>
           </div>

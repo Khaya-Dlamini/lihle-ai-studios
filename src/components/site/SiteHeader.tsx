@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/portfolio", label: "Portfolio" },
   { to: "/contact", label: "Contact" },
@@ -66,7 +65,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
         </nav>
 
         <div className="hidden md:block">
-          <Button asChild size="sm" className="shadow-glow rounded-full">
+          <Button asChild className="shadow-glow rounded-full h-11 px-6">
             <Link to="/book">Book a Project</Link>
           </Button>
         </div>

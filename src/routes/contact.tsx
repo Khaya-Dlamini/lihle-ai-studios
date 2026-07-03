@@ -20,7 +20,7 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <SiteLayout>
-      <section className="container-page py-20 md:py-28">
+      <section className="container-page pt-6 pb-16 md:pt-8 md:pb-20">
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Contact</span>

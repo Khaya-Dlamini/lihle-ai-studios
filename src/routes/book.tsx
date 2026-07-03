@@ -82,7 +82,7 @@ function BookPage() {
 
   return (
     <SiteLayout>
-      <section className="container-page py-20 md:py-24">
+      <section className="container-page pt-6 pb-16 md:pt-8 md:pb-20">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.3fr]">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Book a project</span>

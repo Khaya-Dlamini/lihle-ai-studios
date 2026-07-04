@@ -1,40 +1,58 @@
-## Changes
+## Hero — laptop mockup with live "code" and CTA buttons
 
-### Header / Logo sizing
-- `src/components/site/Logo.tsx`: bump `md` from `h-12` to `h-[4.5rem]` (~1.5×). Update `lg`/`xl` proportionally.
-- `src/components/site/SiteHeader.tsx`:
-  - Make the "Book a Project" button match the nav pill height (`h-11`, rounded-full, same vertical padding as nav pill = `py-1.5` container + link `py-1.5`).
-  - Keep logo at current size prop but it will inherit the new larger baseline.
-- `src/components/site/SiteFooter.tsx`: footer logo also grows proportionally via Logo scale.
+Redesign `src/routes/index.tsx` hero into a two-column composition inspired by the reference:
 
-### Hero (`src/routes/index.tsx`)
-- Increase headline sizes one step: `text-4xl sm:text-5xl md:text-6xl lg:text-7xl` → `text-5xl sm:text-6xl md:text-7xl lg:text-8xl`.
-- Replace hero background: generate a new premium graphic-designer style image (abstract editorial composition, green/charcoal, geometric shapes + subtle grid, no photo) saved to `src/assets/hero-bg.jpg` via imagegen.
+- **Left / top**: existing "Modern websites built smarter with AI." headline + subcopy, moved to sit near the center-left.
+- **Center-bottom**: a large stylized laptop illustration built in pure CSS/SVG (no image) tilted slightly. Screen shows a fake code editor:
+  - Faux window chrome (3 dots + tab labeled `hero.tsx`)
+  - Line numbers + syntax-highlighted JSX snippet (green keywords, muted comments, orange strings) written in monospace
+  - Two of the "code lines" are actually real `<Link>` components styled to look like inline JSX/function calls but rendered as bright, high-contrast CTA pills — `<BookAProject />` → `/book` and `<ViewMyWork />` → `/portfolio`. They sit inside the code block so they read as code but pop with primary green background + subtle glow so they call to action.
+- Keep hero background but darken slightly so laptop stands out. Remove the separate BevelLink button row (the CTAs now live on the laptop).
+- Mobile: laptop scales down and sits below the headline; CTAs remain tappable.
 
-### "What we do" section
-- Remove the subtitle "One focus, done exceptionally well."
+## Navbar — single glass shell around nav + book button
 
-### "Recent work" section
-- Remove eyebrow "Recent work".
-- Rename heading "Selected projects" → "Recent Projects".
+`src/components/site/SiteHeader.tsx`:
+- Wrap the nav pill AND the "Book a Project" button inside one rounded-full glass container (`border backdrop-blur-xl` shell). Logo and mobile menu icon stay outside.
+- Book button stays green (`bg-primary`), rounded-full, `h-9`, sitting flush inside the glass shell on the right with a small gap from the nav links.
+- Navbar remains `fixed` (already is) — no behavior change.
 
-### New About section on Home (after hero)
-Inspired by uploaded reference (image 2): dark charcoal card with rounded avatar tile, name + role, "Available for projects" dot indicator, intro paragraph, and 3 stat cards (3+ Years Building, 20+ Projects Shipped, 100% Client Satisfaction).
-- Upload user photo (`user-uploads://WhatsApp_Image_2025-07-03_at_15.47.59.jpeg`) via `lovable-assets` → `src/assets/lihle-portrait.jpg.asset.json`.
-- Use portrait in the avatar tile (replaces the tea/coffee icon in the inspo).
-- Keep palette on-brand: charcoal surface, primary green accents for stat icons and dot.
+## Green cards — graphic-designer treatment
 
-### Remove About page
-- Delete `src/routes/about.tsx` (route auto-regenerates).
-- Remove `/about` link from `SiteHeader.tsx` nav array and `SiteFooter.tsx` Explore list.
-- Remove `/about` entry from `src/routes/sitemap[.]xml.ts` if present.
+Replace the flat `surface-charcoal` look on the About Me card and the "Ready to launch" CTA card (`src/routes/index.tsx`) with a layered composition:
+- Charcoal base + subtle SVG grid overlay + soft primary radial glow in one corner + a diagonal primary accent stripe + faint noise
+- Keep palette (charcoal + primary green); no new colors added.
 
-### Reduce top padding on inner pages
-- `src/routes/services.tsx`, `src/routes/portfolio.tsx`, `src/routes/contact.tsx`, `src/routes/book.tsx`: reduce the first section's top padding (e.g. `pt-32` → `pt-24`, or hero-style header padding trimmed) so content sits close under the fixed navbar. `SiteLayout` already adds `pt-20` for non-overlay pages — trim page-level top padding to `pt-4`/`pt-6`.
+## Card shapes — beveled cut-corners across the site
 
-### SEO
-- Update root `__root.tsx` nav-related structured data if it references About.
-- Update sitemap to drop `/about`.
+Reuse the hero `BevelLink` clip-path polygon as a shared card shape for:
+- About Me stat cards (`src/routes/index.tsx`)
+- "What we do" cards (`src/routes/index.tsx`)
+- "Recent Projects" article cards (`src/routes/index.tsx`)
+- Service cards on `src/routes/services.tsx`
+
+Each card gets the cut-corner clip-path, a thin primary hairline border, and a matching cut-corner icon tile.
+
+## Icon refresh (lucide-react)
+
+- About Me stats: `Award` → `Sparkles`, `Rocket` → `Layers`, `Users` → `HeartHandshake`
+- What We Do: `Bot` → `Wand2`, `Zap` → `Gauge`, `Search` → `BadgeDollarSign`
+- Services page: swap current icons for more distinctive lucide equivalents (e.g. `Palette`, `Code2`, `LineChart`, `Rocket`, `Search`, `Sparkles` depending on which services are listed)
+
+## Footer
+
+`src/components/site/SiteFooter.tsx`: remove the "Built with React, TypeScript & AI." line. Keep the copyright line only.
+
+## Padding tightening
+
+- About Me section: `py-14 md:py-20` → `pt-14 pb-6 md:pt-16 md:pb-8`
+- "What we do" section: reduce bottom padding so it flows into Recent Projects with less blank space (`pb-6` → `pb-2 md:pb-4`)
+
+## Technical notes
+
+- Laptop + code editor is pure JSX/Tailwind/SVG — no new dependencies, no images. CTAs inside the code block are real `<Link>` components from `@tanstack/react-router`, styled to look like syntax-highlighted JSX tokens but with primary background + glow so they read as buttons.
+- Shared beveled clip-path lives as an inline class string reused across the four card locations; no util file changes.
+- Font/color tokens untouched.
 
 ## Not changing
-- Colors, fonts, routing framework, other page content untouched.
+- Fonts, color palette, routes, page copy (aside from footer line removal), or business logic.

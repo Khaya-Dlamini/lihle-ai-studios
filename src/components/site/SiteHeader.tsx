@@ -47,28 +47,27 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
       <div className="container-page mt-3 flex items-center justify-between gap-3">
         <Logo variant={isOverlay ? "light" : "dark"} size="md" />
 
-        <nav
-          className={`hidden md:flex items-center gap-1 rounded-full border px-2 py-1.5 backdrop-blur-xl backdrop-saturate-150 shadow-lg ${glassClass}`}
-          aria-label="Primary"
+        <div
+          className={`hidden md:flex items-center gap-1 rounded-full border pl-2 pr-1.5 py-1.5 backdrop-blur-xl backdrop-saturate-150 shadow-lg ${glassClass}`}
         >
-          {nav.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              activeOptions={{ exact: item.to === "/" }}
-              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${linkIdle} ${linkActive}`}
-              activeProps={{ "data-status": "active" } as never}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden md:block">
-          <Button asChild className="shadow-glow rounded-full h-11 px-6">
+          <nav className="flex items-center gap-1" aria-label="Primary">
+            {nav.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                activeOptions={{ exact: item.to === "/" }}
+                className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${linkIdle} ${linkActive}`}
+                activeProps={{ "data-status": "active" } as never}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <Button asChild className="ml-1 h-9 rounded-full px-5 shadow-glow">
             <Link to="/book">Book a Project</Link>
           </Button>
         </div>
+
 
         <button
           type="button"

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Button } from "@/components/ui/button";
-import { Bot, Zap, Search, Sparkles } from "lucide-react";
+import { Wand2, Gauge, BadgeDollarSign, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({

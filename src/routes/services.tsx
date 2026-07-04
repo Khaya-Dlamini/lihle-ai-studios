@@ -18,9 +18,9 @@ export const Route = createFileRoute("/services")({
 });
 
 const features = [
-  { icon: Bot, title: "AI-Powered Design", desc: "AI-assisted design, copy and imagery tailored to your brand." },
-  { icon: Zap, title: "Built for Speed", desc: "Modern React stack tuned for 95+ Lighthouse performance." },
-  { icon: Search, title: "SEO Ready", desc: "Structured data, sitemaps and metadata engineered for ranking." },
+  { icon: Wand2, title: "AI-Powered Design", desc: "AI-assisted design, copy and imagery tailored to your brand." },
+  { icon: Gauge, title: "Built for Speed", desc: "Modern React stack tuned for 95+ Lighthouse performance." },
+  { icon: BadgeDollarSign, title: "Affordable & Transparent", desc: "Premium websites priced to fit real-world budgets." },
   { icon: Sparkles, title: "Conversion Focused", desc: "Clean UX and clear calls-to-action that turn visitors into customers." },
 ];
 
@@ -39,14 +39,15 @@ function ServicesPage() {
 
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {features.map((s) => (
-            <div key={s.title} className="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/40 hover:shadow-lg">
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><s.icon className="h-5 w-5" /></div>
+            <div key={s.title} className="group clip-bevel border border-primary/20 bg-card p-6 transition-all hover:border-primary/60 hover:shadow-lg">
+              <div className="inline-flex h-11 w-11 clip-bevel-sm items-center justify-center bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><s.icon className="h-5 w-5" /></div>
               <h3 className="mt-5 text-lg font-semibold">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
             </div>
           ))}
         </div>
       </section>
+
 
       <section className="container-page pb-24">
         <div className="relative overflow-hidden rounded-3xl surface-charcoal px-8 py-16 md:px-16 md:py-20">

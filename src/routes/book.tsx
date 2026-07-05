@@ -32,9 +32,7 @@ const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(80),
   email: z.string().trim().email("Enter a valid email").max(120),
   company: z.string().trim().max(120).optional().or(z.literal("")),
-  projectType: z.enum(["website", "ecommerce", "landing", "redesign", "consultation", "other"]),
-  budget: z.enum(["under-1k", "1k-3k", "3k-7k", "7k-plus", "not-sure"]),
-  timeline: z.string().min(1, "Select a timeline"),
+  projectType: z.enum(["website", "landing", "redesign", "consultation", "other"]),
   details: z.string().trim().min(20, "Please share at least a couple of sentences").max(2000),
 });
 
@@ -50,8 +48,6 @@ function BookPage() {
       email: "",
       company: "",
       projectType: "website",
-      budget: "not-sure",
-      timeline: "1-3-months",
       details: "",
     },
   });

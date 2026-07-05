@@ -176,12 +176,12 @@ function HomePage() {
             </p>
             <div className="relative mt-6 grid grid-cols-3 gap-3 md:gap-4">
               {[
-                { icon: Sparkles, stat: "3+", label: "Years Building" },
-                { icon: Layers, stat: "5+", label: "Projects" },
-                { icon: HeartHandshake, stat: "98.2%", label: "Client Satisfaction" },
+                { icon: AppWindow, stat: "3+", label: "Years Building", tone: "text-fuchsia-300 bg-fuchsia-500/15" },
+                { icon: LayoutPanelTop, stat: "5+", label: "Projects", tone: "text-sky-300 bg-sky-500/15" },
+                { icon: HeartHandshake, stat: "98.2%", label: "Client Satisfaction", tone: "text-amber-300 bg-amber-400/15" },
               ].map((s) => (
                 <div key={s.label} className={`border border-white/10 bg-white/5 p-3 text-center md:p-5 ${CARD_BEVEL}`}>
-                  <div className={`mx-auto inline-flex h-8 w-8 items-center justify-center bg-primary/15 text-primary md:h-10 md:w-10 ${TILE_BEVEL}`}>
+                  <div className={`mx-auto inline-flex h-8 w-8 items-center justify-center md:h-10 md:w-10 ${s.tone} ${TILE_BEVEL}`}>
                     <s.icon className="h-4 w-4 md:h-5 md:w-5" />
                   </div>
                   <p className="mt-2 font-display text-lg font-semibold text-white md:text-2xl">{s.stat}</p>

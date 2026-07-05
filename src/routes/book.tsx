@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
 
 export const Route = createFileRoute("/book")({
   head: () => ({
@@ -90,7 +90,6 @@ function BookPage() {
             <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Free 30-minute discovery call</li>
               <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Tailored proposal & timeline</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> No obligation</li>
             </ul>
           </div>
 

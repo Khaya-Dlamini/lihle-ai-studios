@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Wand2, Gauge, BadgeDollarSign, Sparkles, Layers, HeartHandshake } from "lucide-react";
+import { Wand2, Target, BadgeDollarSign, AppWindow, LayoutPanelTop, HeartHandshake } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import heroBg from "@/assets/hero-bg.jpg";
 import work1 from "@/assets/portfolio-1.jpg";
 import work2 from "@/assets/portfolio-2.jpg";
 import portrait from "@/assets/lihle-portrait.jpg.asset.json";

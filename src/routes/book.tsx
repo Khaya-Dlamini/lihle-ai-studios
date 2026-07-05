@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
 
 export const Route = createFileRoute("/book")({
   head: () => ({
@@ -32,9 +32,7 @@ const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(80),
   email: z.string().trim().email("Enter a valid email").max(120),
   company: z.string().trim().max(120).optional().or(z.literal("")),
-  projectType: z.enum(["website", "ecommerce", "landing", "redesign", "consultation", "other"]),
-  budget: z.enum(["under-1k", "1k-3k", "3k-7k", "7k-plus", "not-sure"]),
-  timeline: z.string().min(1, "Select a timeline"),
+  projectType: z.enum(["website", "landing", "redesign", "consultation", "other"]),
   details: z.string().trim().min(20, "Please share at least a couple of sentences").max(2000),
 });
 
@@ -50,8 +48,6 @@ function BookPage() {
       email: "",
       company: "",
       projectType: "website",
-      budget: "not-sure",
-      timeline: "1-3-months",
       details: "",
     },
   });
@@ -94,7 +90,6 @@ function BookPage() {
             <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Free 30-minute discovery call</li>
               <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Tailored proposal & timeline</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> No obligation</li>
             </ul>
           </div>
 
@@ -118,48 +113,10 @@ function BookPage() {
                   <SelectTrigger id="projectType"><SelectValue placeholder="Choose one" /></SelectTrigger>
                   <SelectContent>
                     <SelectItem value="website">New website</SelectItem>
-                    <SelectItem value="ecommerce">E-commerce</SelectItem>
                     <SelectItem value="landing">Landing page</SelectItem>
                     <SelectItem value="redesign">Redesign / refresh</SelectItem>
                     <SelectItem value="consultation">Consultation only</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-              </Field>
-
-              <Field label="Budget (USD)" htmlFor="budget" className="md:col-span-2">
-                <RadioGroup
-                  defaultValue={form.getValues("budget")}
-                  onValueChange={(v) => form.setValue("budget", v as FormValues["budget"], { shouldValidate: true })}
-                  className="grid grid-cols-2 gap-2 sm:grid-cols-5"
-                >
-                  {[
-                    ["under-1k", "Under $1k"],
-                    ["1k-3k", "$1k – $3k"],
-                    ["3k-7k", "$3k – $7k"],
-                    ["7k-plus", "$7k+"],
-                    ["not-sure", "Not sure"],
-                  ].map(([v, l]) => (
-                    <label key={v} htmlFor={`b-${v}`} className="flex cursor-pointer items-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-sm hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
-                      <RadioGroupItem id={`b-${v}`} value={v} />
-                      <span>{l}</span>
-                    </label>
-                  ))}
-                </RadioGroup>
-              </Field>
-
-              <Field label="Timeline" htmlFor="timeline" className="md:col-span-2">
-                <Select
-                  defaultValue={form.getValues("timeline")}
-                  onValueChange={(v) => form.setValue("timeline", v, { shouldValidate: true })}
-                >
-                  <SelectTrigger id="timeline"><SelectValue /></SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="asap">ASAP</SelectItem>
-                    <SelectItem value="1-month">Within 1 month</SelectItem>
-                    <SelectItem value="1-3-months">1 – 3 months</SelectItem>
-                    <SelectItem value="3-plus-months">3+ months</SelectItem>
-                    <SelectItem value="flexible">Flexible</SelectItem>
                   </SelectContent>
                 </Select>
               </Field>

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Button } from "@/components/ui/button";
-import { Wand2, Gauge, BadgeDollarSign, Sparkles } from "lucide-react";
+import { Wand2, Gauge, BadgeDollarSign, Target } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -18,10 +18,10 @@ export const Route = createFileRoute("/services")({
 });
 
 const features = [
-  { icon: Wand2, title: "AI-Powered Design", desc: "AI-assisted design, copy and imagery tailored to your brand." },
-  { icon: Gauge, title: "Built for Speed", desc: "Modern React stack tuned for 95+ Lighthouse performance." },
-  { icon: BadgeDollarSign, title: "Affordable & Transparent", desc: "Premium websites priced to fit real-world budgets." },
-  { icon: Sparkles, title: "Conversion Focused", desc: "Clean UX and clear calls-to-action that turn visitors into customers." },
+  { icon: Wand2, title: "Custom built websites", desc: "AI-assisted design, copy and imagery tailored to your brand.", surface: "bg-fuchsia-500/10 border-fuchsia-400/40 hover:border-fuchsia-400/70", tile: "bg-fuchsia-500/15 text-fuchsia-500" },
+  { icon: Gauge, title: "We build websites fast", desc: "From brief to live launch in days, not months — powered by modern tooling.", surface: "bg-sky-500/10 border-sky-400/40 hover:border-sky-400/70", tile: "bg-sky-500/15 text-sky-500" },
+  { icon: BadgeDollarSign, title: "Affordable & Transparent", desc: "Premium websites priced to fit real-world budgets.", surface: "bg-amber-400/10 border-amber-400/40 hover:border-amber-400/70", tile: "bg-amber-400/20 text-amber-600" },
+  { icon: Target, title: "Conversion Focused", desc: "Clean UX and clear calls-to-action that turn visitors into customers.", surface: "bg-emerald-500/10 border-primary/40 hover:border-primary/70", tile: "bg-primary/15 text-primary" },
 ];
 
 function ServicesPage() {
@@ -39,8 +39,8 @@ function ServicesPage() {
 
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {features.map((s) => (
-            <div key={s.title} className="group clip-bevel border border-primary/20 bg-card p-6 transition-all hover:border-primary/60 hover:shadow-lg">
-              <div className="inline-flex h-11 w-11 clip-bevel-sm items-center justify-center bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><s.icon className="h-5 w-5" /></div>
+            <div key={s.title} className={`group clip-bevel border p-6 transition-all hover:shadow-lg ${s.surface}`}>
+              <div className={`inline-flex h-11 w-11 clip-bevel-sm items-center justify-center ${s.tile}`}><s.icon className="h-5 w-5" /></div>
               <h3 className="mt-5 text-lg font-semibold">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
             </div>

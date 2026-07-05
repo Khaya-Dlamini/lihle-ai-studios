@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Wand2, Gauge, BadgeDollarSign, Sparkles, Layers, HeartHandshake } from "lucide-react";
+import { Wand2, Target, BadgeDollarSign, AppWindow, LayoutPanelTop, HeartHandshake } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import heroBg from "@/assets/hero-bg.jpg";
 import work1 from "@/assets/portfolio-1.jpg";
 import work2 from "@/assets/portfolio-2.jpg";
 import portrait from "@/assets/lihle-portrait.jpg.asset.json";
@@ -116,29 +115,33 @@ function Laptop() {
 function HomePage() {
   return (
     <SiteLayout transparentHeader>
-      {/* HERO — laptop centerpiece */}
-      <section className="relative isolate min-h-screen overflow-hidden">
-        <img
-          src={heroBg}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
+      {/* HERO — laptop centerpiece on cream background */}
+      <section className="relative isolate min-h-screen overflow-hidden bg-[oklch(0.985_0.01_140)]">
+        {/* soft green radial glows */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,color-mix(in_oklab,var(--primary)_18%,transparent),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_85%,color-mix(in_oklab,var(--primary-glow)_14%,transparent),transparent_50%)]" />
+        {/* faint dot grid */}
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage:
+              "radial-gradient(oklch(0.62 0.17 152 / 0.18) 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/85 via-charcoal/70 to-charcoal/95" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,color-mix(in_oklab,var(--primary)_28%,transparent),transparent_60%)]" />
 
-        <div className="container-page relative flex min-h-screen flex-col items-center justify-center pt-28 pb-14 md:pt-32 md:pb-16">
+        <div className="container-page relative flex min-h-screen flex-col items-center justify-end pt-28 pb-10 md:pt-32 md:pb-14">
           <div className="max-w-3xl text-center">
-            <h1 className="font-display text-4xl font-semibold leading-[1.05] text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Modern <span className="italic font-light text-white/80">websites</span>{" "}
+            <h1 className="font-display text-4xl font-semibold leading-[1.05] text-charcoal sm:text-5xl md:text-6xl lg:text-7xl">
+              Modern <span className="italic font-light text-charcoal/70">websites</span>{" "}
               built <span className="text-gradient">smarter</span> with AI.
             </h1>
-            <p className="mx-auto mt-4 max-w-lg text-sm text-white/70 md:text-base">
+            <p className="mx-auto mt-4 max-w-lg text-sm text-charcoal/65 md:text-base">
               A premium digital studio building fast, affordable, and beautiful websites — powered by AI.
             </p>
           </div>
 
-          <div className="mt-8 w-full md:mt-12">
+          <div className="mt-8 w-full md:mt-10">
             <Laptop />
           </div>
         </div>
@@ -173,12 +176,12 @@ function HomePage() {
             </p>
             <div className="relative mt-6 grid grid-cols-3 gap-3 md:gap-4">
               {[
-                { icon: Sparkles, stat: "3+", label: "Years Building" },
-                { icon: Layers, stat: "5+", label: "Projects" },
-                { icon: HeartHandshake, stat: "98.2%", label: "Client Satisfaction" },
+                { icon: AppWindow, stat: "3+", label: "Years Building", tone: "text-fuchsia-300 bg-fuchsia-500/15" },
+                { icon: LayoutPanelTop, stat: "5+", label: "Projects", tone: "text-sky-300 bg-sky-500/15" },
+                { icon: HeartHandshake, stat: "98.2%", label: "Client Satisfaction", tone: "text-amber-300 bg-amber-400/15" },
               ].map((s) => (
                 <div key={s.label} className={`border border-white/10 bg-white/5 p-3 text-center md:p-5 ${CARD_BEVEL}`}>
-                  <div className={`mx-auto inline-flex h-8 w-8 items-center justify-center bg-primary/15 text-primary md:h-10 md:w-10 ${TILE_BEVEL}`}>
+                  <div className={`mx-auto inline-flex h-8 w-8 items-center justify-center md:h-10 md:w-10 ${s.tone} ${TILE_BEVEL}`}>
                     <s.icon className="h-4 w-4 md:h-5 md:w-5" />
                   </div>
                   <p className="mt-2 font-display text-lg font-semibold text-white md:text-2xl">{s.stat}</p>
@@ -202,15 +205,15 @@ function HomePage() {
         <div className="mt-10 md:container-page">
           <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
             {[
-              { icon: Wand2, title: "Custom built websites", desc: "AI-assisted design, tuned for your brand." },
-              { icon: Gauge, title: "Built for Speed", desc: "React + Vite. 95+ Lighthouse out of the box." },
-              { icon: BadgeDollarSign, title: "Affordable transparent pricing", desc: "Premium websites that fit your budget." },
+              { icon: Wand2, title: "Custom built websites", desc: "AI-assisted design, tuned for your brand.", surface: "bg-fuchsia-500/10 border-fuchsia-400/30 hover:border-fuchsia-400/70", tile: "bg-fuchsia-500/15 text-fuchsia-300" },
+              { icon: Target, title: "Conversion Focused", desc: "Clean UX and clear CTAs that turn visitors into customers.", surface: "bg-sky-500/10 border-sky-400/30 hover:border-sky-400/70", tile: "bg-sky-500/15 text-sky-300" },
+              { icon: BadgeDollarSign, title: "Affordable transparent pricing", desc: "Premium websites that fit your budget.", surface: "bg-amber-400/10 border-amber-400/30 hover:border-amber-400/70", tile: "bg-amber-400/15 text-amber-300" },
             ].map((s) => (
               <div
                 key={s.title}
-                className={`group w-[68%] sm:w-[54%] md:w-auto shrink-0 snap-start border border-primary/20 bg-card p-4 transition-all hover:border-primary/60 hover:shadow-lg md:min-w-0 md:p-6 ${CARD_BEVEL}`}
+                className={`group w-[68%] sm:w-[54%] md:w-auto shrink-0 snap-start border p-4 transition-all hover:shadow-lg md:min-w-0 md:p-6 ${s.surface} ${CARD_BEVEL}`}
               >
-                <div className={`inline-flex h-10 w-10 items-center justify-center bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground ${TILE_BEVEL}`}>
+                <div className={`inline-flex h-10 w-10 items-center justify-center transition-colors ${s.tile} ${TILE_BEVEL}`}>
                   <s.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-3 text-sm font-semibold md:text-base">{s.title}</h3>

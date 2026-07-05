@@ -1,58 +1,49 @@
-## Hero — laptop mockup with live "code" and CTA buttons
 
-Redesign `src/routes/index.tsx` hero into a two-column composition inspired by the reference:
+## Hero background (light)
+- `src/routes/index.tsx`: swap dark `heroBg` image + charcoal overlays for a cream/white background with subtle green touches (soft radial primary glow + faint dot grid). Keep the dark laptop mockup as-is (its own dark chrome). Switch headline copy color to dark (`text-charcoal`) and subcopy to muted; keep gradient span for "smarter".
+- Since `SiteLayout` uses `transparentHeader`, header sits over light bg — keep glass nav (already translucent green tint works on light).
 
-- **Left / top**: existing "Modern websites built smarter with AI." headline + subcopy, moved to sit near the center-left.
-- **Center-bottom**: a large stylized laptop illustration built in pure CSS/SVG (no image) tilted slightly. Screen shows a fake code editor:
-  - Faux window chrome (3 dots + tab labeled `hero.tsx`)
-  - Line numbers + syntax-highlighted JSX snippet (green keywords, muted comments, orange strings) written in monospace
-  - Two of the "code lines" are actually real `<Link>` components styled to look like inline JSX/function calls but rendered as bright, high-contrast CTA pills — `<BookAProject />` → `/book` and `<ViewMyWork />` → `/portfolio`. They sit inside the code block so they read as code but pop with primary green background + subtle glow so they call to action.
-- Keep hero background but darken slightly so laptop stands out. Remove the separate BevelLink button row (the CTAs now live on the laptop).
-- Mobile: laptop scales down and sits below the headline; CTAs remain tappable.
+## About Me — colorful icons
+Currently 3 stat cards use `Sparkles / Layers / HeartHandshake` on primary tint. Change to app-window-style icons with brand colors pulled from hero code (fuchsia/purple `#e879f9`, sky/blue `#7dd3fc`, amber/yellow `#fcd34d`, emerald primary):
+- "3+ Years Building" → `AppWindow` icon, **fuchsia/purple** tile bg + icon
+- "5+ Projects" → `LayoutPanelTop` (tab-like) icon, **sky blue** tile bg + icon
+- "98.2% Client Satisfaction" → keep `HeartHandshake` but colorize (**amber/yellow** tile)
+Each icon tile keeps the beveled `TILE_BEVEL` shape; background becomes `bg-<color>/15`, icon `text-<color>-400`.
 
-## Navbar — single glass shell around nav + book button
+## "What we do" section (index)
+Remove "Built for Speed" card. Replace with **Conversion Focused** card (icon `MousePointerClick` or `Target`). Final 3 cards:
+1. Custom built websites — `Wand2` — purple tile
+2. Conversion Focused — `Target` — blue tile
+3. Affordable transparent pricing — `BadgeDollarSign` — amber tile
+Cards themselves get colored surfaces (soft tinted bg `bg-<color>/10` + `border-<color>/30`) instead of plain `bg-card`. Icon tile color matches card color.
 
-`src/components/site/SiteHeader.tsx`:
-- Wrap the nav pill AND the "Book a Project" button inside one rounded-full glass container (`border backdrop-blur-xl` shell). Logo and mobile menu icon stay outside.
-- Book button stays green (`bg-primary`), rounded-full, `h-9`, sitting flush inside the glass shell on the right with a small gap from the nav links.
-- Navbar remains `fixed` (already is) — no behavior change.
+## Services page cards
+Current 4 cards: AI-Powered Design, Built for Speed, Affordable & Transparent, Conversion Focused.
+- Remove **Built for Speed**, replace with **"We build websites fast"** (icon `Gauge`, keep as speed message but new title/copy).
+- Replace **AI-Powered Design** with **"Custom built websites"** (icon `Wand2`) matching index card copy.
+Final 4: Custom built websites (purple), We build websites fast (blue), Affordable & Transparent (amber), Conversion Focused (emerald/primary). Apply same colored-surface treatment as index What-we-do cards; icon colors match.
 
-## Green cards — graphic-designer treatment
+## Booking form (`src/routes/book.tsx`)
+- Remove Budget field/section entirely.
+- Remove Timeline field/section entirely.
+- Under Project Type, remove the "E-commerce" option.
+- Remove any "No obligation" text/badge on the page.
 
-Replace the flat `surface-charcoal` look on the About Me card and the "Ready to launch" CTA card (`src/routes/index.tsx`) with a layered composition:
-- Charcoal base + subtle SVG grid overlay + soft primary radial glow in one corner + a diagonal primary accent stripe + faint noise
-- Keep palette (charcoal + primary green); no new colors added.
+## Portfolio page (`src/routes/portfolio.tsx`)
+Replace project list with exactly 5 items (remove any e-commerce):
+1. Dentist company
+2. Artist portfolio
+3. Fashion portfolio
+4. NPC theatre company
+5. Marketing agency
+Reuse existing card/image treatment; use existing portfolio images cycled or placeholder tinted blocks (no new image generation). Tags updated accordingly (Healthcare, Portfolio, Fashion, Arts, Marketing).
 
-## Card shapes — beveled cut-corners across the site
+## Color tokens
+Use inline Tailwind arbitrary utilities from existing hero palette — no new CSS tokens needed:
+- Purple: `fuchsia-400/500`
+- Blue: `sky-400/500`
+- Yellow: `amber-300/400`
+- Green: existing `primary`
 
-Reuse the hero `BevelLink` clip-path polygon as a shared card shape for:
-- About Me stat cards (`src/routes/index.tsx`)
-- "What we do" cards (`src/routes/index.tsx`)
-- "Recent Projects" article cards (`src/routes/index.tsx`)
-- Service cards on `src/routes/services.tsx`
-
-Each card gets the cut-corner clip-path, a thin primary hairline border, and a matching cut-corner icon tile.
-
-## Icon refresh (lucide-react)
-
-- About Me stats: `Award` → `Sparkles`, `Rocket` → `Layers`, `Users` → `HeartHandshake`
-- What We Do: `Bot` → `Wand2`, `Zap` → `Gauge`, `Search` → `BadgeDollarSign`
-- Services page: swap current icons for more distinctive lucide equivalents (e.g. `Palette`, `Code2`, `LineChart`, `Rocket`, `Search`, `Sparkles` depending on which services are listed)
-
-## Footer
-
-`src/components/site/SiteFooter.tsx`: remove the "Built with React, TypeScript & AI." line. Keep the copyright line only.
-
-## Padding tightening
-
-- About Me section: `py-14 md:py-20` → `pt-14 pb-6 md:pt-16 md:pb-8`
-- "What we do" section: reduce bottom padding so it flows into Recent Projects with less blank space (`pb-6` → `pb-2 md:pb-4`)
-
-## Technical notes
-
-- Laptop + code editor is pure JSX/Tailwind/SVG — no new dependencies, no images. CTAs inside the code block are real `<Link>` components from `@tanstack/react-router`, styled to look like syntax-highlighted JSX tokens but with primary background + glow so they read as buttons.
-- Shared beveled clip-path lives as an inline class string reused across the four card locations; no util file changes.
-- Font/color tokens untouched.
-
-## Not changing
-- Fonts, color palette, routes, page copy (aside from footer line removal), or business logic.
+## Out of scope
+No routing, no fonts, no business logic, no new deps, no new images.

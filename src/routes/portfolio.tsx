@@ -20,12 +20,11 @@ export const Route = createFileRoute("/portfolio")({
 });
 
 const projects = [
-  { img: work1, title: "Nimbus — SaaS Landing", tag: "Marketing site", desc: "Conversion-focused launch page for an AI SaaS, built with React + Vite." },
-  { img: work2, title: "Verdant — Boutique Store", tag: "E-commerce", desc: "Premium product storefront with custom CMS integration and lightning-fast UX." },
-  { img: work3, title: "Pulse — Analytics App", tag: "Product UI", desc: "Dashboard UI for a data analytics product, with rich charts and real-time data." },
-  { img: work1, title: "Atlas — Studio Site", tag: "Agency", desc: "Brand-first portfolio site featuring smooth scroll and case studies." },
-  { img: work2, title: "Bloom — Lifestyle Brand", tag: "E-commerce", desc: "DTC brand experience with editorial storytelling and AI-curated recommendations." },
-  { img: work3, title: "Vector — Fintech Dashboard", tag: "Product UI", desc: "Trading dashboard with custom data viz and refined dark interface." },
+  { img: work1, title: "Bright Smile Dental", tag: "Healthcare", desc: "Modern, welcoming website for a dentist practice with online booking and clear service info." },
+  { img: work2, title: "Studio Mabaso", tag: "Artist Portfolio", desc: "A visual-first portfolio for a contemporary artist — quiet layout, loud imagery." },
+  { img: work3, title: "Atelier Nine", tag: "Fashion Portfolio", desc: "Editorial fashion portfolio with fullscreen lookbooks and refined typography." },
+  { img: work1, title: "Ubuntu Theatre Collective", tag: "NPC / Arts", desc: "Nonprofit theatre company site with productions, cast bios and donation flow." },
+  { img: work2, title: "Northline Marketing", tag: "Marketing Agency", desc: "Bold agency site with case studies, services and lead-generation focus." },
 ];
 
 function PortfolioPage() {

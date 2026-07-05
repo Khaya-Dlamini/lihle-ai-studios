@@ -24,28 +24,18 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
 
   const isOverlay = overlay && !scrolled;
 
-  const glassClass = isOverlay
-    ? "border-white/15 bg-white/10 text-white"
-    : "border-charcoal/10 bg-white/70 text-charcoal";
-
-  const linkIdle = isOverlay
-    ? "text-white/75 hover:text-white"
-    : "text-charcoal/60 hover:text-charcoal";
-
-  const linkActive = isOverlay
-    ? "data-[status=active]:text-white data-[status=active]:bg-white/15"
-    : "data-[status=active]:text-charcoal data-[status=active]:bg-charcoal/5";
-
-  const btnClass = isOverlay ? "text-white" : "text-charcoal";
-
-  const mobileItemClass = isOverlay
-    ? "text-white/85 hover:bg-white/10"
-    : "text-charcoal/85 hover:bg-charcoal/5";
+  // Both overlay (light hero) and scrolled states use dark-on-light glass now
+  const glassClass = "border-charcoal/10 bg-white/70 text-charcoal";
+  const linkIdle = "text-charcoal/60 hover:text-charcoal";
+  const linkActive = "data-[status=active]:text-charcoal data-[status=active]:bg-charcoal/5";
+  const btnClass = "text-charcoal";
+  const mobileItemClass = "text-charcoal/85 hover:bg-charcoal/5";
+  void isOverlay;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="container-page mt-3 flex items-center justify-between gap-3">
-        <Logo variant={isOverlay ? "light" : "dark"} size="md" />
+        <Logo variant="dark" size="md" />
 
         <div
           className={`hidden md:flex items-center gap-1 rounded-full border pl-2 pr-1.5 py-1.5 backdrop-blur-xl backdrop-saturate-150 shadow-lg ${glassClass}`}

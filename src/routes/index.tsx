@@ -205,15 +205,15 @@ function HomePage() {
         <div className="mt-10 md:container-page">
           <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
             {[
-              { icon: Wand2, title: "Custom built websites", desc: "AI-assisted design, tuned for your brand." },
-              { icon: Gauge, title: "Built for Speed", desc: "React + Vite. 95+ Lighthouse out of the box." },
-              { icon: BadgeDollarSign, title: "Affordable transparent pricing", desc: "Premium websites that fit your budget." },
+              { icon: Wand2, title: "Custom built websites", desc: "AI-assisted design, tuned for your brand.", surface: "bg-fuchsia-500/10 border-fuchsia-400/30 hover:border-fuchsia-400/70", tile: "bg-fuchsia-500/15 text-fuchsia-300" },
+              { icon: Target, title: "Conversion Focused", desc: "Clean UX and clear CTAs that turn visitors into customers.", surface: "bg-sky-500/10 border-sky-400/30 hover:border-sky-400/70", tile: "bg-sky-500/15 text-sky-300" },
+              { icon: BadgeDollarSign, title: "Affordable transparent pricing", desc: "Premium websites that fit your budget.", surface: "bg-amber-400/10 border-amber-400/30 hover:border-amber-400/70", tile: "bg-amber-400/15 text-amber-300" },
             ].map((s) => (
               <div
                 key={s.title}
-                className={`group w-[68%] sm:w-[54%] md:w-auto shrink-0 snap-start border border-primary/20 bg-card p-4 transition-all hover:border-primary/60 hover:shadow-lg md:min-w-0 md:p-6 ${CARD_BEVEL}`}
+                className={`group w-[68%] sm:w-[54%] md:w-auto shrink-0 snap-start border p-4 transition-all hover:shadow-lg md:min-w-0 md:p-6 ${s.surface} ${CARD_BEVEL}`}
               >
-                <div className={`inline-flex h-10 w-10 items-center justify-center bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground ${TILE_BEVEL}`}>
+                <div className={`inline-flex h-10 w-10 items-center justify-center transition-colors ${s.tile} ${TILE_BEVEL}`}>
                   <s.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-3 text-sm font-semibold md:text-base">{s.title}</h3>

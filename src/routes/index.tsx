@@ -115,29 +115,33 @@ function Laptop() {
 function HomePage() {
   return (
     <SiteLayout transparentHeader>
-      {/* HERO — laptop centerpiece */}
-      <section className="relative isolate min-h-screen overflow-hidden">
-        <img
-          src={heroBg}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
+      {/* HERO — laptop centerpiece on cream background */}
+      <section className="relative isolate min-h-screen overflow-hidden bg-[oklch(0.985_0.01_140)]">
+        {/* soft green radial glows */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,color-mix(in_oklab,var(--primary)_18%,transparent),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_85%,color-mix(in_oklab,var(--primary-glow)_14%,transparent),transparent_50%)]" />
+        {/* faint dot grid */}
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage:
+              "radial-gradient(oklch(0.62 0.17 152 / 0.18) 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/85 via-charcoal/70 to-charcoal/95" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,color-mix(in_oklab,var(--primary)_28%,transparent),transparent_60%)]" />
 
-        <div className="container-page relative flex min-h-screen flex-col items-center justify-center pt-28 pb-14 md:pt-32 md:pb-16">
+        <div className="container-page relative flex min-h-screen flex-col items-center justify-end pt-28 pb-10 md:pt-32 md:pb-14">
           <div className="max-w-3xl text-center">
-            <h1 className="font-display text-4xl font-semibold leading-[1.05] text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Modern <span className="italic font-light text-white/80">websites</span>{" "}
+            <h1 className="font-display text-4xl font-semibold leading-[1.05] text-charcoal sm:text-5xl md:text-6xl lg:text-7xl">
+              Modern <span className="italic font-light text-charcoal/70">websites</span>{" "}
               built <span className="text-gradient">smarter</span> with AI.
             </h1>
-            <p className="mx-auto mt-4 max-w-lg text-sm text-white/70 md:text-base">
+            <p className="mx-auto mt-4 max-w-lg text-sm text-charcoal/65 md:text-base">
               A premium digital studio building fast, affordable, and beautiful websites — powered by AI.
             </p>
           </div>
 
-          <div className="mt-8 w-full md:mt-12">
+          <div className="mt-8 w-full md:mt-10">
             <Laptop />
           </div>
         </div>

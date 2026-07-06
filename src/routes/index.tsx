@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Wand2, Target, BadgeDollarSign, AppWindow, LayoutPanelTop, HeartHandshake } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import work1 from "@/assets/portfolio-1.jpg";
-import work2 from "@/assets/portfolio-2.jpg";
+import { SectionEyebrow } from "@/components/site/SectionEyebrow";
+import artist from "@/assets/portfolio-artist.png.asset.json";
+import lumen from "@/assets/portfolio-lumen.png.asset.json";
 import portrait from "@/assets/lihle-portrait.jpg.asset.json";
+import cafe from "@/assets/hero-coffeeshop.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -19,7 +21,6 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-// Reusable beveled card shape (matches hero visual language)
 const CARD_BEVEL =
   "[clip-path:polygon(14px_0,100%_0,100%_calc(100%-14px),calc(100%-14px)_100%,0_100%,0_14px)]";
 const TILE_BEVEL =
@@ -51,11 +52,8 @@ function CodeCTA({
 function Laptop() {
   return (
     <div className="relative mx-auto w-full max-w-3xl">
-      {/* Lid */}
       <div className="relative rounded-t-2xl bg-gradient-to-b from-neutral-800 to-neutral-900 p-2 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
-        {/* Screen */}
         <div className="relative overflow-hidden rounded-lg bg-[oklch(0.16_0.02_250)] ring-1 ring-white/10">
-          {/* Window chrome */}
           <div className="flex items-center gap-2 border-b border-white/10 bg-black/40 px-3 py-2">
             <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
@@ -63,7 +61,6 @@ function Laptop() {
             <div className="ml-3 rounded-md bg-white/5 px-2 py-0.5 text-[10px] font-medium text-white/60">hero.tsx</div>
           </div>
 
-          {/* Code body */}
           <div className="grid grid-cols-[auto_1fr] gap-x-3 px-3 py-3 font-mono text-[10px] leading-5 sm:text-[11px] sm:leading-6 md:text-xs md:leading-7">
             <div className="select-none text-right text-white/25">
               {Array.from({ length: 9 }).map((_, i) => (
@@ -100,10 +97,8 @@ function Laptop() {
             </div>
           </div>
         </div>
-        {/* Notch/camera */}
         <div className="absolute inset-x-0 top-1 mx-auto h-1 w-16 rounded-full bg-black/40" />
       </div>
-      {/* Base */}
       <div className="relative mx-auto h-3 w-[105%] -translate-x-[2.5%] rounded-b-xl bg-gradient-to-b from-neutral-700 to-neutral-900 ring-1 ring-white/10">
         <div className="absolute left-1/2 top-0 h-1.5 w-24 -translate-x-1/2 rounded-b-lg bg-black/60" />
       </div>
@@ -115,20 +110,17 @@ function Laptop() {
 function HomePage() {
   return (
     <SiteLayout transparentHeader>
-      {/* HERO — laptop centerpiece on cream background */}
-      <section className="relative isolate min-h-screen overflow-hidden bg-[oklch(0.985_0.01_140)]">
-        {/* soft green radial glows */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,color-mix(in_oklab,var(--primary)_18%,transparent),transparent_55%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_85%,color-mix(in_oklab,var(--primary-glow)_14%,transparent),transparent_50%)]" />
-        {/* faint dot grid */}
-        <div
-          className="absolute inset-0 opacity-40"
-          style={{
-            backgroundImage:
-              "radial-gradient(oklch(0.62 0.17 152 / 0.18) 1px, transparent 1px)",
-            backgroundSize: "22px 22px",
-          }}
+      {/* HERO — coffee shop background */}
+      <section className="relative isolate min-h-screen overflow-hidden">
+        <img
+          src={cafe.url}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover"
         />
+        {/* soft cream/white scrim for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/85" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,color-mix(in_oklab,var(--primary)_14%,transparent),transparent_60%)]" />
 
         <div className="container-page relative flex min-h-screen flex-col items-center justify-end pt-28 pb-10 md:pt-32 md:pb-14">
           <div className="max-w-3xl text-center">
@@ -136,7 +128,7 @@ function HomePage() {
               Modern <span className="italic font-light text-charcoal/70">websites</span>{" "}
               built <span className="text-gradient">smarter</span> with AI.
             </h1>
-            <p className="mx-auto mt-4 max-w-lg text-sm text-charcoal/65 md:text-base">
+            <p className="mx-auto mt-4 max-w-lg text-sm text-charcoal/70 md:text-base">
               A premium digital studio building fast, affordable, and beautiful websites — powered by AI.
             </p>
           </div>
@@ -147,57 +139,67 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ABOUT ME */}
-      <section className="container-page pt-14 pb-6 md:pt-16 md:pb-8">
-        <div className="mx-auto max-w-4xl">
-          <div className={`graphic-card p-6 md:p-10 ${CARD_BEVEL}`}>
-            {/* diagonal accent */}
-            <div className="pointer-events-none absolute -right-10 top-6 h-40 w-40 rotate-45 bg-primary/15 blur-2xl" />
-            <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center">
-              <img
-                src={portrait.url}
-                alt="Khayelihle Dlamini — Vibe coder & Front-end dev"
-                className={`h-20 w-20 shrink-0 object-cover ring-2 ring-primary/40 md:h-24 md:w-24 ${TILE_BEVEL}`}
-              />
-              <div className="min-w-0">
-                <h2 className="font-display text-2xl font-semibold text-white md:text-3xl">Khayelihle Dlamini</h2>
-                <p className="mt-1 text-sm font-medium text-primary md:text-base">Vibe coder & Front-end dev</p>
-                <p className="mt-2 flex items-center gap-2 text-xs text-white/60">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-                  </span>
-                  Available for projects
-                </p>
-              </div>
+      {/* ABOUT ME — full-width band */}
+      <section className="relative overflow-hidden bg-[oklch(0.18_0.02_250)] text-white">
+        <div className="pointer-events-none absolute inset-0 opacity-70"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 85% 15%, color-mix(in oklab, var(--primary) 30%, transparent), transparent 45%), radial-gradient(circle at 10% 90%, color-mix(in oklab, var(--primary-glow) 20%, transparent), transparent 40%)",
+          }}
+        />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div className="container-page relative py-14 md:py-20">
+          <SectionEyebrow label="about me" />
+          <div className="mt-6 grid gap-8 md:grid-cols-[auto_1fr] md:items-center">
+            <img
+              src={portrait.url}
+              alt="Khayelihle Dlamini — Vibe coder & Front-end dev"
+              className={`h-24 w-24 shrink-0 object-cover ring-2 ring-primary/40 md:h-32 md:w-32 ${TILE_BEVEL}`}
+            />
+            <div className="min-w-0">
+              <h2 className="font-display text-3xl font-semibold md:text-4xl">Khayelihle Dlamini</h2>
+              <p className="mt-1 text-sm font-medium text-primary md:text-base">Vibe coder & Front-end dev</p>
+              <p className="mt-2 flex items-center gap-2 text-xs text-white/60">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                </span>
+                Available for projects
+              </p>
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 md:text-base">
+                I'm Khaya, a vibe coder who builds premium, AI-powered websites that are modern and designed to convert. I blend creative ideas, cutting-edge AI tools, and my knack for design to deliver results you can be proud of. And when I step away from the keyboard, you'll find me playing the flute and&nbsp;violin.
+              </p>
             </div>
-            <p className="relative mt-6 text-sm leading-relaxed text-white/75 md:text-base">
-              I'm Khaya, a vibe coder who builds premium, AI-powered websites that are modern and designed to convert. I blend creative ideas, cutting-edge AI tools, and my knack for design to deliver results you can be proud of. And when I step away from the keyboard, you'll find me playing the flute and&nbsp;violin.
-            </p>
-            <div className="relative mt-6 grid grid-cols-3 gap-3 md:gap-4">
-              {[
-                { icon: AppWindow, stat: "3+", label: "Years Building", tone: "text-fuchsia-300 bg-fuchsia-500/15" },
-                { icon: LayoutPanelTop, stat: "5+", label: "Projects", tone: "text-sky-300 bg-sky-500/15" },
-                { icon: HeartHandshake, stat: "98.2%", label: "Client Satisfaction", tone: "text-amber-300 bg-amber-400/15" },
-              ].map((s) => (
-                <div key={s.label} className={`border border-white/10 bg-white/5 p-3 text-center md:p-5 ${CARD_BEVEL}`}>
-                  <div className={`mx-auto inline-flex h-8 w-8 items-center justify-center md:h-10 md:w-10 ${s.tone} ${TILE_BEVEL}`}>
-                    <s.icon className="h-4 w-4 md:h-5 md:w-5" />
-                  </div>
-                  <p className="mt-2 font-display text-lg font-semibold text-white md:text-2xl">{s.stat}</p>
-                  <p className="mt-0.5 text-[10px] uppercase tracking-wider text-white/55 md:text-xs">{s.label}</p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-3 gap-3 md:gap-4">
+            {[
+              { icon: AppWindow, stat: "3+", label: "Years Building", tone: "text-fuchsia-300 bg-fuchsia-500/15" },
+              { icon: LayoutPanelTop, stat: "5+", label: "Projects", tone: "text-sky-300 bg-sky-500/15" },
+              { icon: HeartHandshake, stat: "98.2%", label: "Client Satisfaction", tone: "text-amber-300 bg-amber-400/15" },
+            ].map((s) => (
+              <div key={s.label} className={`border border-white/10 bg-white/5 p-3 text-center md:p-5 ${CARD_BEVEL}`}>
+                <div className={`mx-auto inline-flex h-8 w-8 items-center justify-center md:h-10 md:w-10 ${s.tone} ${TILE_BEVEL}`}>
+                  <s.icon className="h-4 w-4 md:h-5 md:w-5" />
                 </div>
-              ))}
-            </div>
+                <p className="mt-2 font-display text-lg font-semibold md:text-2xl">{s.stat}</p>
+                <p className="mt-0.5 text-[10px] uppercase tracking-wider text-white/55 md:text-xs">{s.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* WHAT WE DO */}
-      <section className="pt-4 pb-2 md:pt-6 md:pb-4">
+      <section className="pt-14 pb-2 md:pt-16 md:pb-4">
         <div className="container-page">
           <div className="max-w-2xl">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">What we do</span>
+            <SectionEyebrow label="what we do" />
             <h2 className="mt-3 font-display text-3xl font-semibold md:text-5xl">We build AI-powered websites.</h2>
           </div>
         </div>
@@ -205,9 +207,9 @@ function HomePage() {
         <div className="mt-10 md:container-page">
           <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
             {[
-              { icon: Wand2, title: "Custom built websites", desc: "AI-assisted design, tuned for your brand.", surface: "bg-fuchsia-500/10 border-fuchsia-400/30 hover:border-fuchsia-400/70", tile: "bg-fuchsia-500/15 text-fuchsia-300" },
-              { icon: Target, title: "Conversion Focused", desc: "Clean UX and clear CTAs that turn visitors into customers.", surface: "bg-sky-500/10 border-sky-400/30 hover:border-sky-400/70", tile: "bg-sky-500/15 text-sky-300" },
-              { icon: BadgeDollarSign, title: "Affordable transparent pricing", desc: "Premium websites that fit your budget.", surface: "bg-amber-400/10 border-amber-400/30 hover:border-amber-400/70", tile: "bg-amber-400/15 text-amber-300" },
+              { icon: Wand2, title: "Custom built websites", desc: "AI-assisted design, tuned for your brand.", surface: "bg-fuchsia-500/10 border-fuchsia-400/30 hover:border-fuchsia-400/70", tile: "bg-fuchsia-500/15 text-fuchsia-500" },
+              { icon: Target, title: "Conversion Focused", desc: "Clean UX and clear CTAs that turn visitors into customers.", surface: "bg-sky-500/10 border-sky-400/30 hover:border-sky-400/70", tile: "bg-sky-500/15 text-sky-500" },
+              { icon: BadgeDollarSign, title: "Affordable transparent pricing", desc: "Premium websites that fit your budget.", surface: "bg-amber-400/10 border-amber-400/30 hover:border-amber-400/70", tile: "bg-amber-400/15 text-amber-600" },
             ].map((s) => (
               <div
                 key={s.title}
@@ -229,6 +231,7 @@ function HomePage() {
         <div className="container-page">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
+              <SectionEyebrow label="recent projects" />
               <h2 className="mt-2 font-display text-3xl font-semibold md:text-4xl">Recent Projects</h2>
             </div>
             <Link to="/portfolio" className="text-sm font-medium text-primary hover:underline">All projects →</Link>
@@ -238,8 +241,8 @@ function HomePage() {
         <div className="mt-10 md:container-page">
           <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0">
             {[
-              { img: work1, title: "SaaS Landing", tag: "Marketing" },
-              { img: work2, title: "Boutique Store", tag: "E-commerce" },
+              { img: artist.url, title: "Nadia Voss", tag: "Artist Portfolio" },
+              { img: lumen.url, title: "Lumen Dental", tag: "Healthcare" },
             ].map((p) => (
               <article
                 key={p.title}
@@ -256,21 +259,22 @@ function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="container-page py-10 md:py-12">
-        <div className={`graphic-card relative mx-auto max-w-xl overflow-hidden px-4 py-5 text-center md:px-6 md:py-6 ${CARD_BEVEL}`}>
-          <div className="pointer-events-none absolute -left-8 -bottom-8 h-32 w-32 rotate-12 bg-primary/20 blur-2xl" />
-          <div className="relative">
-            <h2 className="font-display text-lg font-semibold text-white md:text-xl">Ready to launch something exceptional?</h2>
-            <p className="mx-auto mt-2 max-w-md text-sm text-white/70">We'll respond within two business day.</p>
-            <div className="mt-5">
-              <Link
-                to="/book"
-                className={`inline-flex items-center justify-center bg-primary px-6 py-2.5 text-sm font-semibold uppercase tracking-widest text-primary-foreground shadow-glow transition-colors hover:bg-primary/90 ${TILE_BEVEL}`}
-              >
-                Start Your Project
-              </Link>
-            </div>
+      {/* CTA — full-width solid green band */}
+      <section className="relative bg-forest text-forest-foreground">
+        <div className="container-page py-14 text-center md:py-20">
+          <h2 className="mx-auto max-w-2xl font-display text-3xl font-semibold md:text-5xl">
+            Ready to launch something exceptional?
+          </h2>
+          <p className="mx-auto mt-4 max-w-md text-sm text-forest-foreground/70 md:text-base">
+            We'll respond within two business days.
+          </p>
+          <div className="mt-8">
+            <Link
+              to="/book"
+              className={`inline-flex items-center justify-center bg-primary px-7 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground shadow-glow transition-colors hover:bg-primary/90 ${TILE_BEVEL}`}
+            >
+              Start Your Project
+            </Link>
           </div>
         </div>
       </section>

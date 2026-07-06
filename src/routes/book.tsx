@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { SectionEyebrow } from "@/components/site/SectionEyebrow";
 
 
 export const Route = createFileRoute("/book")({
@@ -81,7 +82,7 @@ function BookPage() {
       <section className="container-page pt-6 pb-16 md:pt-8 md:pb-20">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.3fr]">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Book a project</span>
+            <SectionEyebrow label="book a project" />
             <h1 className="mt-3 font-display text-4xl font-semibold md:text-5xl">Tell us about your project.</h1>
             <p className="mt-5 text-lg text-muted-foreground">
               Share a few details and we'll be in touch within one business day with

@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Phone, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { GmailMark, PhoneMark, MapPinMark } from "@/components/site/BrandIcon";
+import { SectionEyebrow } from "@/components/site/SectionEyebrow";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -23,7 +25,7 @@ function ContactPage() {
       <section className="container-page pt-6 pb-16 md:pt-8 md:pb-20">
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Contact</span>
+            <SectionEyebrow label="contact" />
             <h1 className="mt-3 font-display text-4xl font-semibold md:text-5xl">Let's build something great together.</h1>
             <p className="mt-5 text-lg text-muted-foreground">
               Whether you have a brief or just an idea, we'd love to hear from you.
@@ -31,21 +33,21 @@ function ContactPage() {
             </p>
             <ul className="mt-8 space-y-4">
               <li className="flex items-start gap-4">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary"><Mail className="h-5 w-5" /></span>
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary"><GmailMark size={20} /></span>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
                   <a href="mailto:hello@lihlewebsites.com" className="font-medium text-foreground hover:text-primary">hello@lihlewebsites.com</a>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary"><Phone className="h-5 w-5" /></span>
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary"><PhoneMark size={20} /></span>
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
                   <p className="font-medium text-foreground">Available on request</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary"><MapPin className="h-5 w-5" /></span>
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary"><MapPinMark size={20} /></span>
                 <div>
                   <p className="text-sm text-muted-foreground">Studio</p>
                   <p className="font-medium text-foreground">Remote · Working globally</p>

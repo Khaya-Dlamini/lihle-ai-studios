@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { Wand2, Gauge, BadgeDollarSign, Target } from "lucide-react";
+import { SectionEyebrow } from "@/components/site/SectionEyebrow";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -29,7 +30,7 @@ function ServicesPage() {
     <SiteLayout>
       <section className="container-page pt-6 pb-16 md:pt-8 md:pb-20">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Services</span>
+          <SectionEyebrow label="services" />
           <h1 className="mt-3 font-display text-4xl font-semibold md:text-6xl">We build AI websites.</h1>
           <p className="mt-6 text-lg text-muted-foreground">
             One focus, done exceptionally well. Every project we ship is a modern, AI-powered website —

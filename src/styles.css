@@ -37,6 +37,8 @@
   --color-ring: var(--ring);
   --color-charcoal: var(--charcoal);
   --color-charcoal-foreground: var(--charcoal-foreground);
+  --color-forest: var(--forest);
+  --color-forest-foreground: var(--forest-foreground);
 }
 
 :root {
@@ -52,10 +54,12 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.02 250);
 
-  /* Emerald primary */
-  --primary: oklch(0.62 0.17 152);
-  --primary-foreground: oklch(0.99 0.005 145);
-  --primary-glow: oklch(0.78 0.18 152);
+  /* Emerald / forest palette */
+  --primary: oklch(0.72 0.13 158);
+  --primary-foreground: oklch(0.22 0.04 155);
+  --primary-glow: oklch(0.82 0.14 160);
+  --forest: oklch(0.24 0.04 155);
+  --forest-foreground: oklch(0.98 0.01 145);
 
   --secondary: oklch(0.97 0.01 145);
   --secondary-foreground: oklch(0.22 0.02 250);

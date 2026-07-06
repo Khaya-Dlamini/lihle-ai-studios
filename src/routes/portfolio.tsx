@@ -1,15 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Button } from "@/components/ui/button";
-import work1 from "@/assets/portfolio-1.jpg";
-import work2 from "@/assets/portfolio-2.jpg";
-import work3 from "@/assets/portfolio-3.jpg";
+import { SectionEyebrow } from "@/components/site/SectionEyebrow";
+import lumen from "@/assets/portfolio-lumen.png.asset.json";
+import artist from "@/assets/portfolio-artist.png.asset.json";
+import fashion from "@/assets/portfolio-fashion.jpg.asset.json";
+import potArts from "@/assets/portfolio-pot-arts.png.asset.json";
+import marketing from "@/assets/portfolio-marketing.jpg.asset.json";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
       { title: "Portfolio — Lihle Websites" },
-      { name: "description", content: "Selected projects from Lihle Websites — modern React websites, e-commerce builds and analytics dashboards crafted with AI-assisted workflows." },
+      { name: "description", content: "Selected projects from Lihle Websites — modern websites for healthcare, artists, fashion, arts nonprofits and marketing agencies, crafted with AI-assisted workflows." },
       { property: "og:title", content: "Portfolio — Lihle Websites" },
       { property: "og:description", content: "Selected modern web projects crafted with React, TypeScript and AI." },
       { property: "og:url", content: "/portfolio" },
@@ -20,11 +23,11 @@ export const Route = createFileRoute("/portfolio")({
 });
 
 const projects = [
-  { img: work1, title: "Bright Smile Dental", tag: "Healthcare", desc: "Modern, welcoming website for a dentist practice with online booking and clear service info." },
-  { img: work2, title: "Studio Mabaso", tag: "Artist Portfolio", desc: "A visual-first portfolio for a contemporary artist — quiet layout, loud imagery." },
-  { img: work3, title: "Atelier Nine", tag: "Fashion Portfolio", desc: "Editorial fashion portfolio with fullscreen lookbooks and refined typography." },
-  { img: work1, title: "Ubuntu Theatre Collective", tag: "NPC / Arts", desc: "Nonprofit theatre company site with productions, cast bios and donation flow." },
-  { img: work2, title: "Northline Marketing", tag: "Marketing Agency", desc: "Bold agency site with case studies, services and lead-generation focus." },
+  { img: lumen.url, title: "Lumen Dental", tag: "Healthcare", desc: "Considered, calm website for a modern dental practice — clear services and easy online booking." },
+  { img: artist.url, title: "Nadia Voss", tag: "Artist Portfolio", desc: "A visual-first portfolio for a contemporary painter — quiet layout, loud imagery." },
+  { img: fashion.url, title: "Atelier Nine", tag: "Fashion Portfolio", desc: "Editorial fashion portfolio with fullscreen lookbooks and refined typography." },
+  { img: potArts.url, title: "Pot of Moving Arts", tag: "NPC / Arts", desc: "Nonprofit theatre & dance company site with classes, events and a donation flow." },
+  { img: marketing.url, title: "Northline Marketing", tag: "Marketing Agency", desc: "Bold agency site with case studies, services and lead-generation focus." },
 ];
 
 function PortfolioPage() {
@@ -32,9 +35,9 @@ function PortfolioPage() {
     <SiteLayout>
       <section className="container-page pt-6 pb-16 md:pt-8 md:pb-20">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Portfolio</span>
+          <SectionEyebrow label="portfolio" className="justify-center" />
           <h1 className="mt-3 font-display text-4xl font-semibold md:text-6xl">Work that ships and performs.</h1>
-          <p className="mt-5 text-lg text-muted-foreground">A selection of recent projects across SaaS, e-commerce and product UI.</p>
+          <p className="mt-5 text-lg text-muted-foreground">A selection of recent projects across healthcare, arts, fashion and marketing.</p>
         </div>
 
         <div className="mt-14 grid gap-8 md:grid-cols-2">

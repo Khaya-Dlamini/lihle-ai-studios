@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
-import { Github, Mail } from "lucide-react";
+import { GithubMark, InstagramMark, LinkedinMark, GmailMark } from "./BrandIcon";
 
 export function SiteFooter() {
   return (
@@ -13,8 +13,10 @@ export function SiteFooter() {
             conversion-focused experiences for ambitious brands.
           </p>
           <div className="flex gap-2">
-            <a href="mailto:hello@lihlewebsites.com" aria-label="Email" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary"><Mail className="h-4 w-4" /></a>
-            <a href="https://github.com" aria-label="GitHub" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary"><Github className="h-4 w-4" /></a>
+            <a href="mailto:hello@lihlewebsites.com" aria-label="Email" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary"><GmailMark size={16} /></a>
+            <a href="https://github.com" aria-label="GitHub" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary"><GithubMark size={16} /></a>
+            <a href="https://instagram.com" aria-label="Instagram" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary"><InstagramMark size={16} /></a>
+            <a href="https://linkedin.com" aria-label="LinkedIn" className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-primary hover:border-primary"><LinkedinMark size={16} /></a>
           </div>
         </div>
         <div>
